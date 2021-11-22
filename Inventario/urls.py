@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from apps.producto.views import Home
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -22,4 +23,5 @@ urlpatterns = [
     path('proveedor/', include(('apps.proveedor.urls', 'proveedor'))),
     path('producto/', include(('apps.producto.urls', 'producto'))),
     #path('menu/', include(('apps.menu.urls', 'menu'))),
+    path('home/', Home, name= "index")
 ]
