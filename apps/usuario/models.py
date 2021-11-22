@@ -16,6 +16,7 @@ class Usuario(models.Model):
     correo = models.CharField(blank=True, max_length=100, verbose_name='Correo')
     edad = models.IntegerField(null=True, blank=True,verbose_name='Edad')
     cargo = models.IntegerField(null=True, blank=True, choices=usuario_cargo, verbose_name='Cargo')
+    contraseña = models.CharField(blank=True, max_length=100, verbose_name='Contraseña')
 
 
     def __str__(self):
