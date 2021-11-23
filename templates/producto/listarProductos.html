@@ -13,12 +13,14 @@
                 <tr>
                     <th>Id del producto</th>
                     <th>Nombre</th>
+                    <th>Cantidad de producto</th>
                     <th>Nit_proveedor</th>
                     <th>Precio de compra</th>
                     <th>Precio de venta</th>
                     <th>Tipo de Unidad</th>
                     <th>Tipo de Producto</th>
                     <th>Descripcion</th>
+                    <th>Opciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -26,12 +28,17 @@
                 <tr>
                     <td>{{ producto.id }}</td>
                     <td>{{ producto.nombre }}</td>
+                    <td>{{ producto.cantidad }}</td>
                     <td>{{ producto.nit_proveedor }}</td>
                     <td>{{ producto.precio_compra }}</td>
                     <td>{{ producto.precio_venta }}</td>
                     <td>{{ producto.tipoUnidad }}</td>
                     <td>{{ producto.tipoProducto }}</td>
                     <td>{{ producto.descripcion }}</td>
+                    <td>
+                        <a href="{% url 'producto:editarProducto' producto.id %}">Editar</a>
+                        <a href="{% url 'producto:borrarProducto' producto.id %}">Eliminar</a>
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>
@@ -39,7 +46,6 @@
     {% else %}
         <h1>No existen productos registrados.</h1>
     {% endif %}
-
 
 </body>
 </html>
