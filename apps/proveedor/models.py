@@ -4,16 +4,16 @@ from django.db import models
 
 
 class Proveedor(models.Model):
-    nit = models.IntegerField(primary_key=True, null=False, blank=True, verbose_name='Nit')
-    nombre = models.CharField(blank=True, max_length=100, verbose_name='Nombre')
-    direccion = models.CharField(blank=True, max_length=100, verbose_name='Dierccion')
-    correo = models.CharField(blank=True, max_length=100, verbose_name='Correo')
-    numero = models.IntegerField(null=True, blank=True, verbose_name='Numero de contacto')
+    nit = models.IntegerField(primary_key=True, null=False, blank=False, verbose_name='Nit')
+    nombre = models.CharField(null=False, blank=False, max_length=100, verbose_name='Nombre')
+    direccion = models.CharField(null=False, blank=False, max_length=100, verbose_name='Dierccion')
+    correo = models.CharField(null=False, blank=False, max_length=100, verbose_name='Correo')
+    numero = models.IntegerField(null=False, blank=False, verbose_name='Numero de contacto')
 
     def __str__(self):
-        return self.nit
+        return self.nombre
 
     class Meta:
-        ordering = ['nit']
+        ordering = ['nombre']
         verbose_name = 'Proveedor'
         verbose_name_plural = 'Proveedores'

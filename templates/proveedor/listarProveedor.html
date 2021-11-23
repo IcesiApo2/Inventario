@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de proveedores.</title>
+</head>
+<body>
+    {% if proveedores %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Nit del proveedor</th>
+                    <th>Nombre</th>
+                    <th>Direccion</th>
+                    <th>Correo</th>
+                    <th>Numero</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for proveedor in proveedores %}
+                <tr>
+                    <td>{{ proveedor.nit }}</td>
+                    <td>{{ proveedor.nombre }}</td>
+                    <td>{{ proveedor.direccion }}</td>
+                    <td>{{ proveedor.correo }}</td>
+                    <td>{{ proveedor.numero }}</td>
+                    <td>
+                        <a href="{% url 'proveedor:editarProveedor' proveedor.nit %}">Editar</a>
+                        <a href="{% url 'proveedor:borrarProveedor' proveedor.nit %}">Eliminar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <h1>No existen proveedores registrados.</h1>
+    {% endif %}
+</body>
+</html>

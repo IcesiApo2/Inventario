@@ -8,8 +8,13 @@
 </head>
 <body>
     <form method="POST">
-        {{ proveedor_form.as_p }}
-        <button type= "submit">Crear</button>
+        {% csrf_token %}
+        {% if error %}
+            <h2>{{ error }}</h2>
+        {% else %}    
+            {{ proveedor_form.as_p }}
+            <button type= "submit">Crear</button>
+        {% endif %}
     </form>
 </body>
 </html>
