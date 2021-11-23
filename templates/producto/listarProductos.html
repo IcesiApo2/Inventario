@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de productos.</title>
+</head>
+<body>
+    {% if productos %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Id del producto</th>
+                    <th>Nombre</th>
+                    <th>Nit_proveedor</th>
+                    <th>Precio de compra</th>
+                    <th>Precio de venta</th>
+                    <th>Tipo de Unidad</th>
+                    <th>Tipo de Producto</th>
+                    <th>Descripcion</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for producto in productos %}
+                <tr>
+                    <td>{{ producto.id }}</td>
+                    <td>{{ producto.nombre }}</td>
+                    <td>{{ producto.nit_proveedor }}</td>
+                    <td>{{ producto.precio_compra }}</td>
+                    <td>{{ producto.precio_venta }}</td>
+                    <td>{{ producto.tipoUnidad }}</td>
+                    <td>{{ producto.tipoProducto }}</td>
+                    <td>{{ producto.descripcion }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <h1>No existen productos registrados.</h1>
+    {% endif %}
+
+
+</body>
+</html>
